@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using S7.Net;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Win2PLC
 {
@@ -78,7 +80,7 @@ namespace Win2PLC
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(PLC1200 is null)
+            if (PLC1200 is null)
             {
                 MessageBox.Show("尚未连接PLC");
             }
@@ -89,7 +91,7 @@ namespace Win2PLC
                     PLC1200.Write("DB2.DBX0.0", true);
                 }
             }
-           
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -300,18 +302,21 @@ namespace Win2PLC
 
         private void button8_Click(object sender, EventArgs e)
         {
+            label5.Text = dataStr;
             try
             {
-                if (comboBox1.Text == "Q" & comboBox2.Text == "X")
+                if (comboBox1.Text == "M" | comboBox1.Text == "Q" & comboBox2.Text == "X")
                 {
                     if (textBox8.Text == "0")
                     {
                         PLC1200.Write(dataStr, false);
+                        label12.Text = "false";
                     }
 
                     if (textBox8.Text == "1")
                     {
                         PLC1200.Write(dataStr, true);
+                        label12.Text = "true";
                     }
 
                 }
@@ -357,13 +362,13 @@ namespace Win2PLC
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            
-            
-                if (e.Button == MouseButtons.Left)
-                {
-                    this.Location = new Point(this.Location.X + e.X - mPoint.X, this.Location.Y + e.Y - mPoint.Y);
-                }
-            
+
+
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Location = new Point(this.Location.X + e.X - mPoint.X, this.Location.Y + e.Y - mPoint.Y);
+            }
+
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
@@ -375,6 +380,11 @@ namespace Win2PLC
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             MessageBox.Show("RayWoo版权所有");
+        }
+
+        private void bindingSource2_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

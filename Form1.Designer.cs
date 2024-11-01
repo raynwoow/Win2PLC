@@ -40,7 +40,6 @@ namespace Win2PLC
             button1 = new System.Windows.Forms.Button();
             bindingSource1 = new System.Windows.Forms.BindingSource(components);
             label4 = new System.Windows.Forms.Label();
-            label5 = new System.Windows.Forms.Label();
             button2 = new System.Windows.Forms.Button();
             button3 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
@@ -70,6 +69,8 @@ namespace Win2PLC
             pictureBox2 = new System.Windows.Forms.PictureBox();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             errorProvider1 = new System.Windows.Forms.ErrorProvider(components);
+            label5 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -79,7 +80,7 @@ namespace Win2PLC
             // 
             // textBox1
             // 
-            textBox1.Location = new System.Drawing.Point(220, 46);
+            textBox1.Location = new System.Drawing.Point(130, 54);
             textBox1.Name = "textBox1";
             textBox1.Size = new System.Drawing.Size(127, 23);
             textBox1.TabIndex = 0;
@@ -89,7 +90,7 @@ namespace Win2PLC
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(220, 21);
+            label1.Location = new System.Drawing.Point(130, 29);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(79, 19);
             label1.TabIndex = 1;
@@ -97,7 +98,7 @@ namespace Win2PLC
             // 
             // textBox2
             // 
-            textBox2.Location = new System.Drawing.Point(355, 46);
+            textBox2.Location = new System.Drawing.Point(265, 54);
             textBox2.Name = "textBox2";
             textBox2.Size = new System.Drawing.Size(51, 23);
             textBox2.TabIndex = 2;
@@ -105,7 +106,7 @@ namespace Win2PLC
             // 
             // textBox3
             // 
-            textBox3.Location = new System.Drawing.Point(415, 46);
+            textBox3.Location = new System.Drawing.Point(325, 54);
             textBox3.Name = "textBox3";
             textBox3.Size = new System.Drawing.Size(51, 23);
             textBox3.TabIndex = 3;
@@ -115,7 +116,7 @@ namespace Win2PLC
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label2.Location = new System.Drawing.Point(415, 21);
+            label2.Location = new System.Drawing.Point(325, 29);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(37, 19);
             label2.TabIndex = 4;
@@ -125,7 +126,7 @@ namespace Win2PLC
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label3.Location = new System.Drawing.Point(355, 21);
+            label3.Location = new System.Drawing.Point(265, 29);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(37, 19);
             label3.TabIndex = 5;
@@ -136,7 +137,7 @@ namespace Win2PLC
             // 
             button1.BackColor = System.Drawing.SystemColors.HighlightText;
             button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button1.Location = new System.Drawing.Point(482, 46);
+            button1.Location = new System.Drawing.Point(392, 49);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(75, 33);
             button1.TabIndex = 6;
@@ -153,22 +154,12 @@ namespace Win2PLC
             label4.TabIndex = 7;
             label4.Text = "存储器类型";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label5.Location = new System.Drawing.Point(375, 70);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(74, 19);
-            label5.TabIndex = 8;
-            label5.Text = "默认均为0";
-            // 
             // button2
             // 
             button2.BackColor = System.Drawing.SystemColors.HighlightText;
             button2.Enabled = false;
             button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button2.Location = new System.Drawing.Point(563, 46);
+            button2.Location = new System.Drawing.Point(473, 49);
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(75, 33);
             button2.TabIndex = 9;
@@ -413,7 +404,6 @@ namespace Win2PLC
             panel1.Controls.Add(textBox3);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(button1);
-            panel1.Controls.Add(label5);
             panel1.Controls.Add(button2);
             panel1.Location = new System.Drawing.Point(0, 0);
             panel1.Name = "panel1";
@@ -451,6 +441,24 @@ namespace Win2PLC
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(672, 164);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(43, 17);
+            label5.TabIndex = 33;
+            label5.Text = "label5";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new System.Drawing.Point(672, 192);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(50, 17);
+            label12.TabIndex = 34;
+            label12.Text = "label12";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -458,6 +466,8 @@ namespace Win2PLC
             BackColor = System.Drawing.Color.White;
             BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             ClientSize = new System.Drawing.Size(1184, 681);
+            Controls.Add(label12);
+            Controls.Add(label5);
             Controls.Add(panel1);
             Controls.Add(checkBox1);
             Controls.Add(textBox8);
@@ -506,7 +516,6 @@ namespace Win2PLC
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
@@ -536,6 +545,8 @@ namespace Win2PLC
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label12;
     }
 }
 
