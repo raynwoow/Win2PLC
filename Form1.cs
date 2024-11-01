@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 using S7.Net;
 
 namespace Win2PLC
@@ -76,10 +78,18 @@ namespace Win2PLC
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (PLC1200.IsConnected)
+            if(PLC1200 is null)
             {
-                PLC1200.Write("DB2.DBX0.0", true);
+                MessageBox.Show("尚未连接PLC");
             }
+            else
+            {
+                if (PLC1200.IsConnected)
+                {
+                    PLC1200.Write("DB2.DBX0.0", true);
+                }
+            }
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -337,26 +347,23 @@ namespace Win2PLC
             this.Dispose();
         }
 
+        private Point mPoint;
+
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-            isMouseDown = true;
-            if (isMouseMove == false)
-            {
-                lastLocation = e.Location;
-            }
+            mPoint = new Point(e.X, e.Y);
 
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isMouseDown)
-            {
-                isMouseMove = true;
-                Point newLocation = this.Location;
-                newLocation.Offset(e.X - lastLocation.X, e.Y - lastLocation.Y);
-                this.Location = newLocation;
-                lastLocation = e.Location;
-            }
+            
+            
+                if (e.Button == MouseButtons.Left)
+                {
+                    this.Location = new Point(this.Location.X + e.X - mPoint.X, this.Location.Y + e.Y - mPoint.Y);
+                }
+            
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
